@@ -31,7 +31,7 @@ $errors = [
 ];
 
 $message = '';
-
+$form_passed = false;
 
 // FUNCTIONS ////////////////////////////
 
@@ -104,6 +104,7 @@ function is_phone_number($phone, $min = 9, $max = 13) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+  // Required fields.
   $userInput['name'] = $_POST['name'];
   $userInput['surname'] = $_POST['surname'];
   $userInput['age'] = $_POST['age'];
@@ -114,6 +115,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $userInput['contact'] = $_POST['contact'];
   $userInput['terms'] = (isset($_POST['terms']) and $_POST['terms'] == true) ? true : false;
 
+  // Optional fields.
+  // $userInput['favorite-language'] = 
+  // (isset($_POST['favorite-language']) and $_POST['favorite-language'] == true) ?
+
+
+
+  // Errors handeling.
   $errors['name'] = is_text($userInput['name'], 2, 64) ? '' : 'Name must be 2-64 letters and do not contains numbers.';
   $errors['surname'] = is_text($userInput['surname'], 2, 64) ? '' : 'Surname must be 2-64 letters.';
   $errors['age'] = is_number($userInput['age'], 16, 99) ? '' : 'You must be 16-99 years old.';
@@ -127,6 +135,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $invalid = implode($errors);
   if ( $invalid ) {
     $message = 'Form invalid. Please check your informations and correct them.';
+  } else {
+    $form_passed = true;
   }
 }
 
