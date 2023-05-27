@@ -1,15 +1,17 @@
 <!-- FORM START -->
-<form action="index.php" method="POST" class="form-element">
+<form action="index.php" method="POST" class="form-element" id="main-form">
 
    <!-- FORM ALERT MESSAGE -->
   <?php if($message) : ?>
     <div class="form-alert"><p><?= $message ?></p></div>
   <?php endif; ?>
+  <!-- JS alert -->
+  <div class="form-alert js-alert display-none"><p>Form invalid. Please check your informations and correct them.</p></div>
   
   <!-- NAME -->
   <p class="form-element__input">
     <label for="form-name">First name</label>
-    <input style="<?= $errors['name'] ? 'border: 2px solid red' : '' ?>" type="text" name="name" id="form-name" minlength="2" maxlength="64" placeholder="Johny" value="<?= htmlspecialchars($userInput['name']) ?>">
+    <input style="<?= $errors['name'] ? 'border: 2px solid red' : '' ?>" type="text" name="name" id="form-name" minlength="2" maxlength="64" placeholder="Johny" value="<?= htmlspecialchars($userInput['name']) ?>" required>
     <!-- Error message -->
     <?php if($errors['name']) : ?>
       <p class="input-alert"><?= $errors['name'] ?></p>
@@ -19,7 +21,7 @@
   <!-- SURNAME -->
   <p class="form-element__input">
     <label for="form-surname">Surname</label>
-    <input style="<?= $errors['surname'] ? 'border: 2px solid red' : '' ?>" type="text" name="surname" id="form-surname" minlength="2" maxlength="64" placeholder="Silverhand" value="<?= htmlspecialchars($userInput['surname']) ?>">
+    <input style="<?= $errors['surname'] ? 'border: 2px solid red' : '' ?>" type="text" name="surname" id="form-surname" minlength="2" maxlength="64" placeholder="Silverhand" value="<?= htmlspecialchars($userInput['surname']) ?>" required>
     <!-- Error message -->
     <?php if($errors['surname']) : ?>
       <p class="input-alert"><?= $errors['surname'] ?></p>
@@ -29,7 +31,7 @@
   <!-- AGE -->
   <p class="form-element__input">
     <label for="form-age">Age (16 - 99)</label>
-    <input style="<?= $errors['age'] ? 'border: 2px solid red' : '' ?>" type="number" name="age" id="form-age" min="16" max="99" placeholder="58" value="<?= htmlspecialchars($userInput['age']) ?>">
+    <input style="<?= $errors['age'] ? 'border: 2px solid red' : '' ?>" type="number" name="age" id="form-age" min="16" max="99" placeholder="58" value="<?= htmlspecialchars($userInput['age']) ?>" required>
     <!-- Error message -->
     <?php if($errors['age']) : ?>
       <p class="input-alert"><?= $errors['age'] ?></p>
@@ -39,7 +41,7 @@
   <!-- EMAIL -->
   <p class="form-element__input">
     <label for="form-email">Email</label>
-    <input style="<?= $errors['email'] ? 'border: 2px solid red' : '' ?>" type="text" name="email" id="form-email" placeholder="johny_1988@data.com" value="<?= htmlspecialchars($userInput['email']) ?>">
+    <input style="<?= $errors['email'] ? 'border: 2px solid red' : '' ?>" type="text" name="email" id="form-email" placeholder="johny_1988@data.com" value="<?= htmlspecialchars($userInput['email']) ?>" required>
     <!-- Error message -->
     <?php if($errors['email']) : ?>
       <p class="input-alert"><?= $errors['email'] ?></p>
@@ -49,7 +51,7 @@
   <!-- PASSWORD -->
   <p class="form-element__input">
     <label for="form-password">Password</label>
-    <input style="<?= $errors['password'] ? 'border: 2px solid red' : '' ?>" type="password" name="password" id="form-password" placeholder="Your Password" value="<?= htmlspecialchars($userInput['password']) ?>">
+    <input style="<?= $errors['password'] ? 'border: 2px solid red' : '' ?>" type="password" name="password" id="form-password" placeholder="Your Password" value="<?= htmlspecialchars($userInput['password']) ?>" required>
     <!-- Error message -->
     <?php if($errors['password']) : ?>
       <p class="input-alert"><?= $errors['password'] ?></p>
@@ -59,7 +61,7 @@
   <!-- RE-ENTER PASSWORD -->
   <p class="form-element__input">
     <label for="form-repeat-password">Re-enter password</label>
-    <input style="<?= $errors['repeatPassword'] ? 'border: 2px solid red' : '' ?>" type="password" name="repeat-password" id="form-repeat-password" placeholder="Your Password" value="<?= htmlspecialchars($userInput['repeatPassword']) ?>">
+    <input style="<?= $errors['repeatPassword'] ? 'border: 2px solid red' : '' ?>" type="password" name="repeat-password" id="form-repeat-password" placeholder="Your Password" value="<?= htmlspecialchars($userInput['repeatPassword']) ?>" required>
     <!-- Error message -->
     <?php if($errors['repeatPassword']) : ?>
       <p class="input-alert"><?= $errors['repeatPassword'] ?></p>
@@ -69,7 +71,7 @@
   <!-- PHONE NUMBER -->
   <p class="form-element__input">
     <label for="form-phone">Mobile number</label>
-    <input style="<?= $errors['phone'] ? 'border: 2px solid red' : '' ?>" type="number" name="phone" id="form-phone" placeholder="02077456123" value="<?= htmlspecialchars($userInput['phone']) ?>">
+    <input style="<?= $errors['phone'] ? 'border: 2px solid red' : '' ?>" type="number" name="phone" id="form-phone" placeholder="02077456123" value="<?= htmlspecialchars($userInput['phone']) ?>" required>
     <!-- Error message -->
     <?php if($errors['phone']) : ?>
       <p class="input-alert"><?= $errors['phone'] ?></p>
@@ -79,7 +81,7 @@
   <!-- PREFERED CONTACT -->
   <p class="form-element__select">
     <label for="form-contact">Contact preferences</label>
-    <select style="<?= $errors['contact'] ? 'border: 2px solid red' : '' ?>" name="contact" id="form-contact" >
+    <select style="<?= $errors['contact'] ? 'border: 2px solid red' : '' ?>" name="contact" id="form-contact" required>
       <option value="<?= $userInput['contact'] ?>">-- Please choose an option --</option>
       <option value="Email">Email</option>
       <option value="SMS">SMS</option>
@@ -158,7 +160,7 @@
   
   <!-- TERMS AND CONDITIONS CHECKBOX -->
   <p class="form-element__checkbox">
-    <input type="checkbox" name="terms" value="true" id="form-terms" >
+    <input type="checkbox" name="terms" value="true" id="form-terms" required>
     I agree to the terms and conditions.
   </p>
   <!-- Error message -->
@@ -170,6 +172,8 @@
   <?php if($message) : ?>
     <div class="form-alert"><p><?= $message ?></p></div>
   <?php endif; ?>
+  <!-- JS alert -->
+  <div class="form-alert js-alert display-none"><p>Form invalid. Please check your informations and correct them.</p></div>
 
    <!-- SUBMIT BUTTON -->
   <p class="form-element__submit">
