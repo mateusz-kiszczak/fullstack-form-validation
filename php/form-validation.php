@@ -115,12 +115,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $userInput['contact'] = $_POST['contact'];
   $userInput['terms'] = (isset($_POST['terms']) and $_POST['terms'] == true) ? true : false;
 
-  // Optional fields.
-  // $userInput['favorite-language'] = 
-  // (isset($_POST['favorite-language']) and $_POST['favorite-language'] == true) ?
-
-
-
   // Errors handeling.
   $errors['name'] = is_text($userInput['name'], 2, 64) ? '' : 'Name must be 2-64 letters and do not contains numbers.';
   $errors['surname'] = is_text($userInput['surname'], 2, 64) ? '' : 'Surname must be 2-64 letters.';
@@ -130,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $errors['repeatPassword'] = is_same($userInput['password'], $userInput['repeatPassword']) ? '' : 'Password does not match previous one.';
   $errors['phone'] = is_phone_number($userInput['phone']) ? '' : 'Invalid phone number. Please eneter your mobile phone number WITHOUT the prefix.';
   $errors['contact'] = $userInput['contact'] ? '' : 'Please choose preferred contact method.';
-  $errors['terms'] = $userInput['terms'] ? '' : ' You must agree to the terms and conditions.';
+  $errors['terms'] = $userInput['terms'] ? '' : 'You must agree to the terms and conditions.';
 
   $invalid = implode($errors);
   if ( $invalid ) {

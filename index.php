@@ -11,23 +11,22 @@
   <meta name="description" content="An example of using form validation on both the front-end side with JavaScript and the back-end side with Php.">
   <title>Fullstack form validation</title>
   <link rel="stylesheet" href="styles/styles.css">
-  <script src="script/form-validation.js" defer></script>
 </head>
 <body>
-<div class="page-layout">
-  <div class="content-wrapper">
-  <?php require_once 'php/modules/header.php'; ?>
-
-  <main>
-
-    <?php
-      require ($form_passed) ? 'php/form-success.php' : 'php/form.php';
-    ?>
-    
-  </main>
-
-  <?php include 'php/modules/footer.php'; ?>
+  <div class="page-layout">
+    <div class="content-wrapper">
+    <?php require_once 'php/modules/header.php'; ?>
+  
+    <main>
+      <?php
+        require ($form_passed) ? 'php/form-success.php' : 'php/form.php';
+      ?>
+    </main>
+  
+    <?php include 'php/modules/footer.php'; ?>
+    </div>
   </div>
-</div>
+  <!-- Script file -->
+  <script src="script/form-validation.js" defer></script>
 </body>
 </html>
