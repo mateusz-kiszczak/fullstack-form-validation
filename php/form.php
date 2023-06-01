@@ -98,44 +98,44 @@
     <legend>What is your favorite programming language?</legend>
     <div>
       <p>
-        <input type="radio" name="favorite-language" value="javascript" id="form-lang-js">
+        <input type="radio" name="favorite-language" value="JavaScript" id="form-lang-js">
         <label for="form-lang-js">JavaScript</label>
       <p>
-        <input type="radio" name="favorite-language" value="php" id="form-lang-php">
+        <input type="radio" name="favorite-language" value="PHP" id="form-lang-php">
         <label for="form-lang-php">PHP</label>
       </p>
       <p>
-        <input type="radio" name="favorite-language" value="java" id="form-lang-java">
+        <input type="radio" name="favorite-language" value="Java" id="form-lang-java">
         <label for="form-lang-java">Java</label>
       </p>
       <p>
-        <input type="radio" name="favorite-language" value="c" id="form-lang-c">
+        <input type="radio" name="favorite-language" value="C#" id="form-lang-c">
         <label for="form-lang-c">C#</label>
       </p>
       <p>
-        <input type="radio" name="favorite-language" value="python" id="form-lang-python">
+        <input type="radio" name="favorite-language" value="Python" id="form-lang-python">
         <label for="form-lang-python">Python</label>
       </p>
     </div>
     <div>
       <p>
-        <input type="radio" name="favorite-language" value="swift" id="form-lang-swift">
+        <input type="radio" name="favorite-language" value="Swift" id="form-lang-swift">
         <label for="form-lang-swift">Swift</label>
       </p>
       <p>
-        <input type="radio" name="favorite-language" value="go" id="form-lang-go">
+        <input type="radio" name="favorite-language" value="Go" id="form-lang-go">
         <label for="form-lang-go">Go</label>
       </p>
       <p>
-        <input type="radio" name="favorite-language" value="pearl" id="form-lang-pearl">
+        <input type="radio" name="favorite-language" value="Pearl" id="form-lang-pearl">
         <label for="form-lang-pearl">Pearl</label>
       </p>
       <p>
-        <input type="radio" name="favorite-language" value="rust" id="form-lang-rust">
+        <input type="radio" name="favorite-language" value="Rust" id="form-lang-rust">
         <label for="form-lang-rust">Rust</label>
       </p>
       <p>
-        <input type="radio" name="favorite-language" value="non" id="form-lang-non">
+        <input type="radio" name="favorite-language" value="Non" id="form-lang-non">
         <label for="form-lang-non">Non of above</label>
       </p>
     </div>

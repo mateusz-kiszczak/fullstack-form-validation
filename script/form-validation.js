@@ -9,7 +9,7 @@ const formRepeatPassword = document.getElementById("form-repeat-password");
 const formPhone = document.getElementById("form-phone");
 const formContact = document.getElementById("form-contact");
 const formTerms = document.getElementById("form-terms");
-// const formSubmit = document.getElementById("form-submit");
+const formSubmit = document.getElementById("form-submit");
 
 
 // Create object that holds error messages, regExp validation etc.
@@ -164,10 +164,13 @@ mainForm.addEventListener('submit', (event) => {
   // Handle user input values and error messages.
   validateAll(form);
   handleMainAlert();
-  
   // If no error messages found...
   if (!formHasErrors()) {
     // Submit form and post data to PHP for a second validation.
     mainForm.submit();
   }
 });
+
+formSubmit.addEventListener('click', () => {
+  console.log('click')
+})
